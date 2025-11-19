@@ -1,0 +1,238 @@
+.speed-test-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.speed-test-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.speed-test-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.speed-test-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.speed-test-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--icon-bg);
+  color: var(--icon-color);
+  font-size: 1.2rem;
+}
+
+.speed-test-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.speed-test-initial {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.speed-test-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.speed-test-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.speed-test-button.start {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.speed-test-button.start:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.speed-test-button.retry {
+  background-color: #10b981;
+  color: white;
+}
+
+.speed-test-button.retry:hover {
+  background-color: #059669;
+}
+
+.speed-test-button.reset {
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.speed-test-button.reset:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.speed-test-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.speed-test-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.speed-test-status {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
+  text-align: center;
+}
+
+.speed-test-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.speed-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.speed-metric:last-child {
+  border-bottom: none;
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.metric-value {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.metric-value.ping {
+  color: #3b82f6;
+}
+
+.metric-value.download {
+  color: #10b981;
+}
+
+.metric-value.upload {
+  color: #f59e0b;
+}
+
+.metric-with-quality {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.quality-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.quality-badge.excellent {
+  background-color: #10b981;
+  color: white;
+}
+
+.quality-badge.good {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.quality-badge.average {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.quality-badge.poor {
+  background-color: #ef4444;
+  color: white;
+}
+
+.speed-test-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.speed-test-actions .speed-test-button {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .speed-test-card {
+    padding: 1rem;
+  }
+
+  .speed-test-actions {
+    flex-direction: column;
+  }
+
+  .speed-metric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .metric-with-quality {
+    align-items: flex-start;
+  }
+}
