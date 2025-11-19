@@ -4,16 +4,10 @@ npm-debug.log
 .gitignore
 README.md
 .eslintrc.js
-vite.config.js
-src
 .cache
-dist
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 Dockerfile.dev
-docker-compose.yml
-captain-definition
-nginx.conf
