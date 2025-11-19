@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  masterdashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: masterdashboard
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.masterdashboard.rule=Host(`masterdashboard.yourdomain.com`)"
+      - "traefik.http.routers.masterdashboard.entrypoints=web"
+      - "traefik.http.services.masterdashboard.loadbalancer.server.port=80"
+
+  # Para desarrollo local (opcional)
+  masterdashboard-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: masterdashboard-dev
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev -- --host 0.0.0.0
